@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author     The S Group <support@sashas.org>
+  ~ @copyright  2022  Sashas IT Support Inc. (https://www.sashas.org)
+  ~ @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="thesgroup" translate="label" sortOrder="1000">
+            <label>The S Group</label>
+        </tab>
+        <section id="tsg_errorlog" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <label>404 Error Log</label>
+            <tab>thesgroup</tab>
+            <resource>TheSGroup_NotFoundUrlLog::log</resource>
+            <group id="cleanup" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Logs Cleanup</label>
+                <comment>All the times are in minutes. Use "0" if you want to skip automatic clearance.</comment>
+                <field id="lifetime" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Log Lifetime</label>
+                    <validate>validate-zero-or-greater validate-digits</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

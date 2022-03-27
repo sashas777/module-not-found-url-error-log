@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<!--
+  ~ @author     The S Group <support@sashas.org>
+  ~ @copyright  2022  Sashas IT Support Inc. (https://www.sashas.org)
+  ~ @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+        <add id="TheSGroup_NotFoundUrlLog::thesgroup_notfoundurllog_log" title="404 Error Log" translate="title" module="TheSGroup_NotFoundUrlLog" sortOrder="40" parent="Magento_Backend::system_tools" action="thesgroup_notfoundurllog/log/index" resource="TheSGroup_NotFoundUrlLog::log"/>
+	</menu>
+</config>

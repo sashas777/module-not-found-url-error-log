@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author     The S Group <support@sashas.org>
+  ~ @copyright  2022  Sashas IT Support Inc. (https://www.sashas.org)
+  ~ @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+  -->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="tsg_404_log" resource="default" engine="innodb" comment="Log of 404 requests">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Store ID"/>
+        <column xsi:type="varchar" name="request_url" nullable="true" length="255" comment="Request Url"/>
+        <column xsi:type="varchar" name="refer_url" nullable="true" length="255" comment="Refer Url"/>
+        <column xsi:type="varchar" name="ip" nullable="true" length="255" comment="Request IP"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <constraint xsi:type="foreign" referenceId="TSG_404_LOG_STORE_ID_STORE_STORE_ID"
+                    table="tsg_404_log" column="store_id" referenceTable="store"
+                    referenceColumn="store_id" onDelete="CASCADE"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="TSG_404_LOG_CREATED_AT" indexType="btree">
+            <column name="created_at"/>
+        </index>
+        <index referenceId="TSG_404_LOG_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+    </table>
+</schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author     The S Group <support@sashas.org>
+  ~ @copyright  2022  Sashas IT Support Inc. (https://www.sashas.org)
+  ~ @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="TheSGroup\NotFoundUrlLog\Api\LogRepositoryInterface" type="TheSGroup\NotFoundUrlLog\Model\LogRepository"/>
+    <preference for="TheSGroup\NotFoundUrlLog\Api\Data\LogInterface" type="TheSGroup\NotFoundUrlLog\Model\Log"/>
+    <preference for="TheSGroup\NotFoundUrlLog\Api\Data\LogSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <virtualType name="TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">tsg_404_log</argument>
+            <argument name="resourceModel" xsi:type="string">TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="thesgroup_notfoundurllog_log_listing_data_source" xsi:type="string">TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\App\Router\NoRouteHandlerList">
+        <arguments>
+            <argument name="handlerClassesList" xsi:type="array">
+                <item name="errorlog" xsi:type="array">
+                    <item name="class" xsi:type="string">TheSGroup\NotFoundUrlLog\Router\NoRouteHandler</item>
+                    <item name="sortOrder" xsi:type="string">1</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
