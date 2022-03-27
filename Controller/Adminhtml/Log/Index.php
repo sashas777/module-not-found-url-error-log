@@ -17,7 +17,7 @@ use Magento\Framework\Controller\ResultFactory;
 class Index extends Action implements HttpGetActionInterface
 {
     /**
-     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|\Magento\Framework\View\Result\Page
+     * @return \Magento\Framework\App\ResponseInterface
      */
     public function execute()
     {

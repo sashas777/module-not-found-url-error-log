@@ -30,13 +30,13 @@ class Clean extends Action implements HttpPostActionInterface
     public function __construct(
         Context $context,
         Cleanup $cleanModel
-    )  {
+    ) {
         $this->cleanModel = $cleanModel;
         parent::__construct($context);
     }
 
     /**
-     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|\Magento\Framework\Controller\ResultInterface
+     * @return \Magento\Framework\App\ResponseInterface
      */
     public function execute()
     {
