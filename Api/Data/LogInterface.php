@@ -16,6 +16,8 @@ interface LogInterface
     const IP = 'ip';
     const REQUEST_URL = 'request_url';
     const REFER_URL = 'refer_url';
+    const UPDATED_AT = 'updated_at';
+    const OCCURRENCES = 'occurrences';
 
     /**
      * Get entity_id
@@ -25,7 +27,9 @@ interface LogInterface
 
     /**
      * Set entity_id
+     *
      * @param string $entityId
+     *
      * @return \TheSGroup\NotFoundUrlLog\Log\Api\Data\LogInterface
      */
     public function setEntityId($entityId): LogInterface;
@@ -38,10 +42,12 @@ interface LogInterface
 
     /**
      * Set request_url
+     *
      * @param string $requestUrl
+     *
      * @return \TheSGroup\NotFoundUrlLog\Log\Api\Data\LogInterface
      */
-    public function setRequestUrl($requestUrl): LogInterface;
+    public function setRequestUrl(string $requestUrl): LogInterface;
 
     /**
      * Get refer_url
@@ -51,10 +57,12 @@ interface LogInterface
 
     /**
      * Set refer_url
-     * @param string $referUrl
+     *
+     * @param ?string $referUrl
+     *
      * @return \TheSGroup\NotFoundUrlLog\Log\Api\Data\LogInterface
      */
-    public function setReferUrl($referUrl): LogInterface;
+    public function setReferUrl(?string $referUrl): LogInterface;
 
     /**
      * Get ip
@@ -64,10 +72,12 @@ interface LogInterface
 
     /**
      * Set ip
+     *
      * @param string $ip
+     *
      * @return \TheSGroup\NotFoundUrlLog\Log\Api\Data\LogInterface
      */
-    public function setIp($ip): LogInterface;
+    public function setIp(string $ip): LogInterface;
 
     /**
      * Get created_at
@@ -77,10 +87,27 @@ interface LogInterface
 
     /**
      * Set created_at
+     *
      * @param string $createdAt
+     *
      * @return \TheSGroup\NotFoundUrlLog\Log\Api\Data\LogInterface
      */
-    public function setCreatedAt($createdAt): LogInterface;
+    public function setCreatedAt(string $createdAt): LogInterface;
+
+    /**
+     * Get updated_at
+     * @return string|null
+     */
+    public function getUpdatedAt();
+
+    /**
+     * Set updated_at
+     *
+     * @param string $updatedAt
+     *
+     * @return \TheSGroup\NotFoundUrlLog\Log\Api\Data\LogInterface
+     */
+    public function setUpdatedAt(string $updatedAt): LogInterface;
 
     /**
      * Get store_id
@@ -90,9 +117,26 @@ interface LogInterface
 
     /**
      * Set store_id
-     * @param string $storeId
+     *
+     * @param int $storeId
+     *
      * @return \TheSGroup\NotFoundUrlLog\Log\Api\Data\LogInterface
      */
-    public function setStoreId($storeId): LogInterface;
+    public function setStoreId(int $storeId): LogInterface;
+
+    /**
+     * Get occurrences
+     * @return string|null
+     */
+    public function getOccurrences();
+
+    /**
+     * Set occurrences
+     *
+     * @param int $occurrences
+     *
+     * @return \TheSGroup\NotFoundUrlLog\Log\Api\Data\LogInterface
+     */
+    public function setOccurrences(int $occurrences): LogInterface;
 }
 

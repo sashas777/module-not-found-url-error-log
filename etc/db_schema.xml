@@ -14,8 +14,12 @@
         <column xsi:type="varchar" name="request_url" nullable="true" length="255" comment="Request Url"/>
         <column xsi:type="varchar" name="refer_url" nullable="true" length="255" comment="Refer Url"/>
         <column xsi:type="varchar" name="ip" nullable="true" length="255" comment="Request IP"/>
+        <column xsi:type="smallint" name="occurrences" unsigned="true" nullable="false"
+                identity="false" default="0" comment="Occurrences"/>
         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
                 comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
         <constraint xsi:type="foreign" referenceId="TSG_404_LOG_STORE_ID_STORE_STORE_ID"
                     table="tsg_404_log" column="store_id" referenceTable="store"
                     referenceColumn="store_id" onDelete="CASCADE"/>
@@ -24,6 +28,13 @@
         </constraint>
         <index referenceId="TSG_404_LOG_CREATED_AT" indexType="btree">
             <column name="created_at"/>
+        </index>
+        <index referenceId="TSG_404_LOG_UPDATED_AT" indexType="btree">
+            <column name="updated_at"/>
+        </index>
+        <index referenceId="TSG_404_LOG_REQUEST_URL_STORE_ID" indexType="btree">
+            <column name="request_url"/>
+            <column name="store_id"/>
         </index>
         <index referenceId="TSG_404_LOG_STORE_ID" indexType="btree">
             <column name="store_id"/>

@@ -52,7 +52,7 @@ class Log extends AbstractModel implements LogInterface
     /**
      * @inheritDoc
      */
-    public function setRequestUrl($requestUrl): LogInterface
+    public function setRequestUrl(string $requestUrl): LogInterface
     {
         return $this->setData(static::REQUEST_URL, $requestUrl);
     }
@@ -68,7 +68,7 @@ class Log extends AbstractModel implements LogInterface
     /**
      * @inheritDoc
      */
-    public function setReferUrl($referUrl): LogInterface
+    public function setReferUrl(?string $referUrl): LogInterface
     {
         return $this->setData(static::REFER_URL, $referUrl);
     }
@@ -84,7 +84,7 @@ class Log extends AbstractModel implements LogInterface
     /**
      * @inheritDoc
      */
-    public function setIp($ip): LogInterface
+    public function setIp(string $ip): LogInterface
     {
         return $this->setData(static::IP, $ip);
     }
@@ -100,7 +100,7 @@ class Log extends AbstractModel implements LogInterface
     /**
      * @inheritDoc
      */
-    public function setCreatedAt($createdAt): LogInterface
+    public function setCreatedAt(string $createdAt): LogInterface
     {
         return $this->setData(static::CREATED_AT, $createdAt);
     }
@@ -116,9 +116,41 @@ class Log extends AbstractModel implements LogInterface
     /**
      * @inheritDoc
      */
-    public function setStoreId($storeId): LogInterface
+    public function setStoreId(int $storeId): LogInterface
     {
         return $this->setData(static::STORE_ID, $storeId);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getUpdatedAt()
+    {
+        return $this->getData(static::UPDATED_AT);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setUpdatedAt(string $updatedAt): LogInterface
+    {
+        return $this->setData(static::UPDATED_AT, $updatedAt);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getOccurrences()
+    {
+        return $this->getData(static::OCCURRENCES);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setOccurrences(int $occurrences): LogInterface
+    {
+        return $this->setData(static::OCCURRENCES, $occurrences);
     }
 }
 
