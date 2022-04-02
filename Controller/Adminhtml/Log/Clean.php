@@ -15,9 +15,17 @@ use Magento\Backend\App\Action;
 
 /**
  * Class Clean
+ * Remove all logs controller
  */
 class Clean extends Action implements HttpPostActionInterface
 {
+    /**
+     * Authorization level of a basic admin session
+     *
+     * @see _isAllowed()
+     */
+    const ADMIN_RESOURCE = 'TheSGroup_NotFoundUrlLog::log';
+
     /**
      * @var Cleanup
      */

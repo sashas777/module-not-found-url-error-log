@@ -27,7 +27,7 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>TheSGroup_NotFoundUrlLog::Log</aclResource>
-        <dataProvider name="thesgroup_notfoundurllog_log_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <dataProvider name="thesgroup_notfoundurllog_log_listing_data_source" class="TheSGroup\NotFoundUrlLog\Ui\DataProvider\NotFound\Listing\DataProvider">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>entity_id</primaryFieldName>
@@ -42,7 +42,7 @@
             <filterSelect name="store_id" provider="${ $.parentName }">
                 <settings>
                     <captionValue>0</captionValue>
-                    <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
+                    <options class="Magento\Store\Ui\Component\Listing\Column\Store\Options"/>
                     <label translate="true">Store View</label>
                     <dataScope>store_id</dataScope>
                     <imports>
@@ -74,6 +74,14 @@
                 <label translate="true">Request Url</label>
             </settings>
         </column>
+        <column name="redirect_exists" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="Magento\Config\Model\Config\Source\Yesno"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Redirect Created</label>
+            </settings>
+        </column>
         <column name="refer_url">
             <settings>
                 <filter>text</filter>
@@ -95,7 +103,7 @@
         <column name="updated_at">
             <settings>
                 <filter>text</filter>
-                <label translate="true">The last occurrence</label>
+                <label translate="true">The Last Occurrence</label>
             </settings>
         </column>
         <column name="created_at">
@@ -104,5 +112,10 @@
                 <label translate="true">Created At</label>
             </settings>
         </column>
+        <actionsColumn name="actions" class="TheSGroup\NotFoundUrlLog\Ui\Component\Listing\Columns\UrlActions" sortOrder="100">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
     </columns>
 </listing>

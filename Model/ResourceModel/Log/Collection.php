@@ -14,6 +14,7 @@ use TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log as Resource;
 
 /**
  * Class Collection
+ * A Collection for not found page logs
  */
 class Collection extends AbstractCollection
 {

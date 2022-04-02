@@ -14,6 +14,7 @@ use Magento\Backend\Block\Template;
 
 /**
  * Class Clean
+ * Buttons for the admin panel grid
  */
 class Clean  extends Template implements ButtonProviderInterface
 {
