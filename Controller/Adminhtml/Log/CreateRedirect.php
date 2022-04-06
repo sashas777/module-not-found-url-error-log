@@ -70,6 +70,7 @@ class CreateRedirect extends Action implements HttpGetActionInterface
             '',
             ['data' => ['url_rewrite' => $this->getUrlRewrite()]]
         );
+        $editBlock->updateButton('back', 'onclick', 'setLocation(\'' . $this->getUrl('*/*/') . '\')');
 
         /** @var Form $formBlock */
         $formBlock = $this->_view->getLayout()->createBlock(
