@@ -91,7 +91,7 @@
         <column name="ip">
             <settings>
                 <filter>text</filter>
-                <label translate="true">IP</label>
+                <label translate="true">The 1st Occurrence IP</label>
             </settings>
         </column>
         <column name="occurrences">
