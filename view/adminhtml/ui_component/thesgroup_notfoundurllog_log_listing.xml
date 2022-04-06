@@ -56,7 +56,7 @@
     <columns name="thesgroup_notfoundurllog_log_columns">
         <column name="entity_id">
             <settings>
-                <filter>text</filter>
+                <filter>textRange</filter>
                 <sorting>asc</sorting>
                 <label translate="true">ID</label>
             </settings>
@@ -96,7 +96,7 @@
         </column>
         <column name="occurrences">
             <settings>
-                <filter>text</filter>
+                <filter>textRange</filter>
                 <label translate="true">Occurrences</label>
             </settings>
         </column>

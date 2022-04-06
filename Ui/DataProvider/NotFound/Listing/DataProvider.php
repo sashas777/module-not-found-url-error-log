@@ -31,6 +31,10 @@ class DataProvider extends MagentoDataProvider
             }
         }
 
+        if ($filter->getField() == 'store_id') {
+            $filter->setField('main_table.store_id');
+        }
+
         return parent::addFilter($filter);
     }
 
