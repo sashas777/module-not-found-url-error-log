@@ -98,12 +98,12 @@ class NoRouteHandler implements NoRouteHandlerInterface
         if ($this->state->getAreaCode() != Area::AREA_FRONTEND) {
             return false;
         }
-        $requestUri = $request->getServer('REQUEST_URI');
-        $storeID = (int) $this->storeManager->getStore()->getId();
+        $requestUri = ltrim($request->getServer('REQUEST_URI'), '/');
+        $storeId = (int) $this->storeManager->getStore()->getId();
 
         $searchCriteria = $this->searchCriteriaBuilder
             ->addFilter(LogInterface::REQUEST_URL, $requestUri)
-            ->addFilter(LogInterface::STORE_ID, $storeID)
+            ->addFilter(LogInterface::STORE_ID, $storeId)
             ->setPageSize(1)
             ->create();
 
@@ -126,7 +126,7 @@ class NoRouteHandler implements NoRouteHandlerInterface
             ->setReferUrl($request->getServer('HTTP_REFERER', ''))
             ->setRequestUrl($requestUri)
             ->setOccurrences(1)
-            ->setStoreId($storeID);
+            ->setStoreId($storeId);
         try {
             $this->logRepository->save($logEntry);
         } catch (\Exception $e) {
