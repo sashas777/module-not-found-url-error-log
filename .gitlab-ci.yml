@@ -27,7 +27,8 @@ phpcs:
     paths:
       - vendor/
   script:
-    - vendor/bin/phpcs-tests
+    - vendor/bin/phpcs --config-set installed_paths vendor/magento/magento-coding-standard,vendor/phpcompatibility/php-compatibility/PHPCompatibility
+    - vendor/bin/phpunit  -c vendor/thesgroup/magento2-testing-framework/static/integrity/phpunit.xml
 
 eslint:
   stage: test
