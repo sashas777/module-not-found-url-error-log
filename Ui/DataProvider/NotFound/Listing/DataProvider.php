@@ -17,7 +17,7 @@ use Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider as Mage
 class DataProvider extends MagentoDataProvider
 {
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function addFilter(\Magento\Framework\Api\Filter $filter)
     {
@@ -39,7 +39,7 @@ class DataProvider extends MagentoDataProvider
     }
 
     /**
-     * @inheritdoc
+     * @inheritDoc
      */
     public function getSearchResult()
     {

@@ -10,17 +10,18 @@ namespace TheSGroup\NotFoundUrlLog\Api\Data;
 
 interface LogInterface
 {
-    const ENTITY_ID = 'entity_id';
-    const STORE_ID = 'store_id';
-    const CREATED_AT = 'created_at';
-    const IP = 'ip';
-    const REQUEST_URL = 'request_url';
-    const REFER_URL = 'refer_url';
-    const UPDATED_AT = 'updated_at';
-    const OCCURRENCES = 'occurrences';
+    public const ENTITY_ID = 'entity_id';
+    public const STORE_ID = 'store_id';
+    public const CREATED_AT = 'created_at';
+    public const IP = 'ip';
+    public const REQUEST_URL = 'request_url';
+    public const REFER_URL = 'refer_url';
+    public const UPDATED_AT = 'updated_at';
+    public const OCCURRENCES = 'occurrences';
 
     /**
      * Get entity_id
+     *
      * @return string|null
      */
     public function getEntityId();
@@ -36,6 +37,7 @@ interface LogInterface
 
     /**
      * Get request_url
+     *
      * @return string|null
      */
     public function getRequestUrl();
@@ -51,6 +53,7 @@ interface LogInterface
 
     /**
      * Get refer_url
+     *
      * @return string|null
      */
     public function getReferUrl();
@@ -66,6 +69,7 @@ interface LogInterface
 
     /**
      * Get ip
+     *
      * @return string|null
      */
     public function getIp();
@@ -81,6 +85,7 @@ interface LogInterface
 
     /**
      * Get created_at
+     *
      * @return string|null
      */
     public function getCreatedAt();
@@ -96,6 +101,7 @@ interface LogInterface
 
     /**
      * Get updated_at
+     *
      * @return string|null
      */
     public function getUpdatedAt();
@@ -111,6 +117,7 @@ interface LogInterface
 
     /**
      * Get store_id
+     *
      * @return string|null
      */
     public function getStoreId();
@@ -126,6 +133,7 @@ interface LogInterface
 
     /**
      * Get occurrences
+     *
      * @return string|null
      */
     public function getOccurrences();

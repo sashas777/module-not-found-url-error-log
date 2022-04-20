@@ -16,7 +16,7 @@ use Magento\Backend\Block\Template;
  * Class Clean
  * Buttons for the admin panel grid
  */
-class Clean  extends Template implements ButtonProviderInterface
+class Clean extends Template implements ButtonProviderInterface
 {
     /**
      * Delete button
@@ -25,17 +25,19 @@ class Clean  extends Template implements ButtonProviderInterface
      */
     public function getButtonData()
     {
-            return [
-                'id' => 'delete',
-                'label' => __('Cleanup'),
-                'on_click' => "deleteConfirm('" .__('Are you sure you want to clean old entries?') ."', '"
-                              . $this->getDeleteUrl() . "', {data: {}})",
-                'class' => 'primary',
-                'sort_order' => 10
-            ];
+        return [
+            'id' => 'delete',
+            'label' => __('Cleanup'),
+            'on_click' => "deleteConfirm('" .__('Are you sure you want to clean old entries?') ."', '"
+                          . $this->getDeleteUrl() . "', {data: {}})",
+            'class' => 'primary',
+            'sort_order' => 10
+        ];
     }
 
     /**
+     * Delete Url
+     *
      * @param array $args
      * @return string
      */
@@ -46,6 +48,8 @@ class Clean  extends Template implements ButtonProviderInterface
     }
 
     /**
+     * Get Url Params
+     *
      * @return array
      */
     protected function getDefaultUrlParams()

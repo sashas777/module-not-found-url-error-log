@@ -30,6 +30,8 @@ class Cleanup
     }
 
     /**
+     * Clean Log
+     *
      * @param $lifetimeMinutes
      *
      * @return void

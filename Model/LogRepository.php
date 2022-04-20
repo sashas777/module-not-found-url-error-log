@@ -52,6 +52,8 @@ class LogRepository implements LogRepositoryInterface
 
 
     /**
+     * Constructor
+     *
      * @param ResourceLog $resource
      * @param LogInterfaceFactory $logFactory
      * @param LogCollectionFactory $logCollectionFactory

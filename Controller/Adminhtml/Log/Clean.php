@@ -24,7 +24,7 @@ class Clean extends Action implements HttpPostActionInterface
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'TheSGroup_NotFoundUrlLog::log';
+    public const ADMIN_RESOURCE = 'TheSGroup_NotFoundUrlLog::log';
 
     /**
      * @var Cleanup
@@ -32,6 +32,7 @@ class Clean extends Action implements HttpPostActionInterface
     private $cleanModel;
 
     /**
+     * Constructor
      * @param Context $context
      * @param Cleanup $cleanModel
      */
@@ -44,6 +45,8 @@ class Clean extends Action implements HttpPostActionInterface
     }
 
     /**
+     * Clean action
+     *
      * @return \Magento\Framework\App\ResponseInterface
      */
     public function execute()

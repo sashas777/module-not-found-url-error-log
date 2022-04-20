@@ -28,7 +28,7 @@ phpcs:
       - vendor/
   script:
     - vendor/bin/phpcs --config-set installed_paths vendor/magento/magento-coding-standard,vendor/phpcompatibility/php-compatibility/PHPCompatibility
-    - vendor/bin/phpunit  -c vendor/thesgroup/magento2-testing-framework/static/integrity/phpunit.xml
+    - vendor/bin/phpunit -c vendor/thesgroup/magento2-testing-framework/static/integrity/phpunit.xml
 
 eslint:
   stage: test
@@ -38,33 +38,6 @@ eslint:
       - vendor/
   script:
     - vendor/bin/js-tests
-
-phpstan:
-  stage: test
-  cache:
-    key: $CI_COMMIT_SHA
-    paths:
-      - vendor/
-  script:
-    - vendor/bin/phpstan-tests
-
-phpmd:
-  stage: test
-  cache:
-    key: $CI_COMMIT_SHA
-    paths:
-      - vendor/
-  script:
-    - vendor/bin/phpmd-tests
-
-integrity:
-  stage: test
-  cache:
-    key: $CI_COMMIT_SHA
-    paths:
-      - vendor/
-  script:
-    - vendor/bin/integrity-tests
 
 phpunit:
   stage: test

@@ -17,12 +17,14 @@ interface LogSearchResultsInterface extends SearchResultsInterface
 {
     /**
      * Get Log list.
+     *
      * @return \TheSGroup\NotFoundUrlLog\Api\Data\LogInterface[]
      */
     public function getItems();
 
     /**
      * Set entity_id list.
+     *
      * @param \TheSGroup\NotFoundUrlLog\Api\Data\LogInterface[] $items
      * @return $this
      */

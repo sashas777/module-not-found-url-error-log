@@ -22,9 +22,11 @@ class Index extends Action implements HttpGetActionInterface
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'TheSGroup_NotFoundUrlLog::log';
+    public const ADMIN_RESOURCE = 'TheSGroup_NotFoundUrlLog::log';
 
     /**
+     * Index controller
+     *
      * @return \Magento\Framework\App\ResponseInterface
      */
     public function execute()

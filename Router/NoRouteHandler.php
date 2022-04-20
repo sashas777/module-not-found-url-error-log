@@ -22,6 +22,7 @@ use Magento\Framework\App\Area;
 
 /**
  * Class NoRouteHandler
+ * Handler for not found url
  */
 class NoRouteHandler implements NoRouteHandlerInterface
 {
@@ -61,6 +62,8 @@ class NoRouteHandler implements NoRouteHandlerInterface
     private $state;
 
     /**
+     * Constructor
+     *
      * @param StoreManagerInterface $storeManager
      * @param RemoteAddress $remoteAddress
      * @param LogRepositoryInterface $logRepository
@@ -88,6 +91,8 @@ class NoRouteHandler implements NoRouteHandlerInterface
     }
 
     /**
+     * Process Request
+     *
      * @param RequestInterface $request
      *
      * @return false
@@ -123,10 +128,10 @@ class NoRouteHandler implements NoRouteHandlerInterface
         /** @var \TheSGroup\NotFoundUrlLog\Api\Data\LogInterface $logEntry */
         $logEntry = $this->logInterfaceFactory->create();
         $logEntry->setIp($this->remoteAddress->getRemoteAddress())
-            ->setReferUrl($request->getServer('HTTP_REFERER', ''))
-            ->setRequestUrl($requestUri)
-            ->setOccurrences(1)
-            ->setStoreId($storeId);
+                 ->setReferUrl($request->getServer('HTTP_REFERER', ''))
+                 ->setRequestUrl($requestUri)
+                 ->setOccurrences(1)
+                 ->setStoreId($storeId);
         try {
             $this->logRepository->save($logEntry);
         } catch (\Exception $e) {

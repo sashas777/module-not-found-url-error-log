@@ -32,17 +32,18 @@ class RemoveLeadingRequestSlash implements DataPatchInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function apply()
     {
         $this->moduleDataSetup->getConnection()->startSetup();
         $this->convertRequestUrlData();
         $this->moduleDataSetup->getConnection()->endSetup();
+        return $this;
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public static function getDependencies()
     {
@@ -50,7 +51,7 @@ class RemoveLeadingRequestSlash implements DataPatchInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getAliases()
     {

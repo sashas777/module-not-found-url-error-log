@@ -18,6 +18,7 @@ interface LogRepositoryInterface
 {
     /**
      * Save Log
+     *
      * @param \TheSGroup\NotFoundUrlLog\Api\Data\LogInterface $log
      * @return \TheSGroup\NotFoundUrlLog\Api\Data\LogInterface
      * @throws \Magento\Framework\Exception\LocalizedException
@@ -26,6 +27,7 @@ interface LogRepositoryInterface
 
     /**
      * Retrieve Log
+     *
      * @param string $logId
      * @return \TheSGroup\NotFoundUrlLog\Api\Data\LogInterface
      * @throws \Magento\Framework\Exception\LocalizedException
@@ -34,6 +36,7 @@ interface LogRepositoryInterface
 
     /**
      * Retrieve Log matching the specified criteria.
+     *
      * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
      * @return \TheSGroup\NotFoundUrlLog\Api\Data\LogSearchResultsInterface
      * @throws \Magento\Framework\Exception\LocalizedException
@@ -42,6 +45,7 @@ interface LogRepositoryInterface
 
     /**
      * Delete Log
+     *
      * @param \TheSGroup\NotFoundUrlLog\Api\Data\LogInterface $log
      * @return bool true on success
      * @throws \Magento\Framework\Exception\LocalizedException
@@ -50,6 +54,7 @@ interface LogRepositoryInterface
 
     /**
      * Delete Log by ID
+     *
      * @param string $logId
      * @return bool true on success
      * @throws \Magento\Framework\Exception\NoSuchEntityException

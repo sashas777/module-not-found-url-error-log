@@ -16,7 +16,7 @@ use TheSGroup\NotFoundUrlLog\Model\Cleanup;
  */
 class Clean
 {
-    const XML_PATH_LOG_LIFETIME = 'tsg_errorlog/cleanup/lifetime';
+    public const XML_PATH_LOG_LIFETIME = 'tsg_errorlog/cleanup/lifetime';
 
     /**
      * @var Cleanup
@@ -29,6 +29,8 @@ class Clean
     private $scopeConfig;
 
     /**
+     * Consturctor
+     *
      * @param ScopeConfigInterface $scopeConfig
      * @param Cleanup $cleanup
      */
@@ -41,6 +43,8 @@ class Clean
     }
 
     /**
+     * Cron clean
+     *
      * @return void
      */
     public function execute()

@@ -28,7 +28,7 @@ class CreateRedirect extends Action implements HttpGetActionInterface
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'TheSGroup_NotFoundUrlLog::log';
+    public const ADMIN_RESOURCE = 'TheSGroup_NotFoundUrlLog::log';
 
     /**
      * @var UrlRewriteFactory
@@ -41,6 +41,8 @@ class CreateRedirect extends Action implements HttpGetActionInterface
     private $logRepository;
 
     /**
+     * Constructor
+     *
      * @param Context $context
      * @param UrlRewriteFactory $urlRewriteFactory
      * @param LogRepositoryInterface $logRepository
@@ -54,6 +56,7 @@ class CreateRedirect extends Action implements HttpGetActionInterface
         $this->logRepository = $logRepository;
         parent::__construct($context);
     }
+
     /**
      *  Show redirect create page
      *

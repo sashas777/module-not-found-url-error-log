@@ -27,7 +27,7 @@ class Save  extends Action implements HttpPostActionInterface
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'TheSGroup_NotFoundUrlLog::log';
+    public const ADMIN_RESOURCE = 'TheSGroup_NotFoundUrlLog::log';
 
     /**
      * @var UrlRewriteFactory
@@ -35,6 +35,8 @@ class Save  extends Action implements HttpPostActionInterface
     private $urlRewriteFactory;
 
     /**
+     * Constructor
+     *
      * @param Context $context
      * @param UrlRewriteFactory $urlRewriteFactory
      */
@@ -47,6 +49,8 @@ class Save  extends Action implements HttpPostActionInterface
     }
 
     /**
+     * Save action
+     *
      * @return void
      */
     public function execute()

@@ -15,7 +15,6 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
  */
 class Log extends AbstractDb
 {
-
     /**
      * @inheritDoc
      */
