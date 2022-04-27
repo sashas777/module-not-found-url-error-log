@@ -12,6 +12,7 @@ namespace TheSGroup\NotFoundUrlLog\Controller\Adminhtml\Log;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpPostActionInterface as HttpPostActionInterface;
+use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\UrlRewrite\Model\UrlRewriteFactory;
 use Magento\UrlRewrite\Controller\Adminhtml\Url\Rewrite;
@@ -20,7 +21,7 @@ use Magento\UrlRewrite\Controller\Adminhtml\Url\Rewrite;
  * Class Save
  * Store the redirect entry
  */
-class Save  extends Action implements HttpPostActionInterface
+class Save extends Action implements HttpPostActionInterface
 {
     /**
      * Authorization level of a basic admin session
@@ -51,7 +52,7 @@ class Save  extends Action implements HttpPostActionInterface
     /**
      * Save action
      *
-     * @return void
+     * @return \Magento\Backend\Model\View\Result\Redirect
      */
     public function execute()
     {
@@ -75,6 +76,8 @@ class Save  extends Action implements HttpPostActionInterface
                 __('An error occurred while saving the URL rewrite. Please try to save again.')
             );
         }
-        $this->getResponse()->setRedirect($this->_redirect->getRedirectUrl($this->getUrl('*')));
+        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        $redirectResult = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+        return $redirectResult->setPath('*');
     }
 }

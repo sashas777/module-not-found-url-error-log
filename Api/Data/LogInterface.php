@@ -147,4 +147,3 @@ interface LogInterface
      */
     public function setOccurrences(int $occurrences): LogInterface;
 }
-

@@ -12,7 +12,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use TheSGroup\NotFoundUrlLog\Model\Cleanup;
 
 /**
- * Class Clean
+ * Clean logs by schedule
  */
 class Clean
 {
@@ -65,6 +65,6 @@ class Clean
      */
     private function getLogLifetime(): int
     {
-        return  (int)$this->scopeConfig->getValue(static::XML_PATH_LOG_LIFETIME );
+        return  (int)$this->scopeConfig->getValue(static::XML_PATH_LOG_LIFETIME);
     }
 }

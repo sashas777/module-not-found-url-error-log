@@ -27,14 +27,14 @@ class Index extends Action implements HttpGetActionInterface
     /**
      * Index controller
      *
-     * @return \Magento\Framework\App\ResponseInterface
+     * @return \Magento\Backend\Model\View\Result\Page
      */
     public function execute()
     {
-        $this->_view->loadLayout();
-        $this->_setActiveMenu('TheSGroup_NotFoundUrlLog::thesgroup_notfoundurllog_log');
+        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        $resultPage->getConfig()->getTitle()->prepend(__("404 Error Log"));
+        $resultPage->setActiveMenu('TheSGroup_NotFoundUrlLog::thesgroup_notfoundurllog_log')
+                   ->addBreadcrumb(__('404 Error Log'), __('404 Error Log'));
         return $resultPage;
     }
 }

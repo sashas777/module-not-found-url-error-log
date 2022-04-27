@@ -12,6 +12,7 @@ namespace TheSGroup\NotFoundUrlLog\Controller\Adminhtml\Log;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
+use Magento\Framework\Controller\ResultFactory;
 use Magento\UrlRewrite\Model\UrlRewriteFactory;
 use TheSGroup\NotFoundUrlLog\Api\LogRepositoryInterface;
 use Magento\UrlRewrite\Block\Edit;
@@ -60,15 +61,16 @@ class CreateRedirect extends Action implements HttpGetActionInterface
     /**
      *  Show redirect create page
      *
-     * @return void
+     * @return \Magento\Backend\Model\View\Result\Page
      */
     public function execute()
     {
-        $this->_view->loadLayout();
-        $this->_setActiveMenu('Magento_UrlRewrite::urlrewrite');
+        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+        $resultPage->setActiveMenu('Magento_UrlRewrite::urlrewrite');
 
         /** @var Edit $editBlock */
-        $editBlock = $this->_view->getLayout()->createBlock(
+        $editBlock = $resultPage->getLayout()->createBlock(
             Edit::class,
             '',
             ['data' => ['url_rewrite' => $this->getUrlRewrite()]]
@@ -76,7 +78,7 @@ class CreateRedirect extends Action implements HttpGetActionInterface
         $editBlock->updateButton('back', 'onclick', 'setLocation(\'' . $this->getUrl('*/*/') . '\')');
 
         /** @var Form $formBlock */
-        $formBlock = $this->_view->getLayout()->createBlock(
+        $formBlock = $resultPage->getLayout()->createBlock(
             Form::class,
             '',
             ['data' => ['url_rewrite' => $this->getUrlRewrite()]]
@@ -84,9 +86,10 @@ class CreateRedirect extends Action implements HttpGetActionInterface
 
         $editBlock->setChild('form', $formBlock);
 
-        $this->_view->getPage()->getConfig()->getTitle()->prepend($editBlock->getHeaderText());
+        $resultPage->getConfig()->getTitle()->prepend($editBlock->getHeaderText());
         $this->_addContent($editBlock);
-        $this->_view->renderLayout();
+
+        return $resultPage;
     }
 
     /**

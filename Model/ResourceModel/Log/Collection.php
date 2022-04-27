@@ -12,10 +12,6 @@ use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use TheSGroup\NotFoundUrlLog\Model\Log as Model;
 use TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log as Resource;
 
-/**
- * Class Collection
- * A Collection for not found page logs
- */
 class Collection extends AbstractCollection
 {
     /**
@@ -34,4 +30,3 @@ class Collection extends AbstractCollection
         );
     }
 }
-

@@ -4,7 +4,7 @@
     "homepage": "https://www.sashas.org/",
     "type": "magento2-module",
     "require": {
-        "php": "~7.1.0||~7.2.0||~7.3.0||~7.4.0||~8.0||~8.1.0",
+        "php": "~7.1.0||~7.2.0||~7.3.0||~7.4.0||~8.1.0",
         "magento/framework": "~102.0||~103.0",
         "magento/module-store": "~101.0||~101.1",
         "magento/module-ui": "~101.1||~101.2",

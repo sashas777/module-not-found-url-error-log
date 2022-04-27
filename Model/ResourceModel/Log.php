@@ -10,9 +10,6 @@ namespace TheSGroup\NotFoundUrlLog\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-/**
- * Class Log
- */
 class Log extends AbstractDb
 {
     /**
@@ -23,4 +20,3 @@ class Log extends AbstractDb
         $this->_init('tsg_404_log', 'entity_id');
     }
 }
-

@@ -11,7 +11,7 @@ namespace TheSGroup\NotFoundUrlLog\Model;
 use TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log\CollectionFactory;
 
 /**
- * Class Cleanup
+ * Clean error logs
  */
 class Cleanup
 {
@@ -32,7 +32,7 @@ class Cleanup
     /**
      * Clean Log
      *
-     * @param $lifetimeMinutes
+     * @param int $lifetimeMinutes
      *
      * @return void
      */

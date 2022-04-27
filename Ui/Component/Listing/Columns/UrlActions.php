@@ -18,7 +18,7 @@ use Magento\Framework\UrlInterface;
  * Class UrlActions
  * Action for a not found url
  */
-class UrlActions  extends Column
+class UrlActions extends Column
 {
     /**
      * @var UrlInterface

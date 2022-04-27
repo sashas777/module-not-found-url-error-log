@@ -30,4 +30,3 @@ interface LogSearchResultsInterface extends SearchResultsInterface
      */
     public function setItems(array $items);
 }
-

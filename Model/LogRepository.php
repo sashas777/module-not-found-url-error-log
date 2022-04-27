@@ -21,7 +21,7 @@ use TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log\CollectionFactory as LogCol
 use Magento\Framework\Api\SearchCriteriaInterface;
 
 /**
- * Class LogRepository
+ * Log Repository
  */
 class LogRepository implements LogRepositoryInterface
 {
@@ -49,7 +49,6 @@ class LogRepository implements LogRepositoryInterface
      * @var LogCollectionFactory
      */
     protected $logCollectionFactory;
-
 
     /**
      * Constructor
@@ -82,7 +81,7 @@ class LogRepository implements LogRepositoryInterface
         try {
             $this->resource->save($log);
         } catch (\Exception $exception) {
-            throw new CouldNotSaveException(__( 'Could not save the log: %1',$exception->getMessage()));
+            throw new CouldNotSaveException(__('Could not save the log: %1', $exception->getMessage()));
         }
         return $log;
     }
@@ -145,4 +144,3 @@ class LogRepository implements LogRepositoryInterface
         return $this->delete($this->get($logId));
     }
 }
-
