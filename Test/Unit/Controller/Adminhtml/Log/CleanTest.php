@@ -18,20 +18,38 @@ use TheSGroup\NotFoundUrlLog\Controller\Adminhtml\Log\Clean;
 use PHPUnit\Framework\TestCase;
 use TheSGroup\NotFoundUrlLog\Model\Cleanup;
 
+/**
+ * Class CleanTest
+ */
 class CleanTest extends TestCase
 {
 
     /** @var Clean object */
     private $object;
 
+    /**
+     * @var Context|\PHPUnit\Framework\MockObject\MockObject
+     */
     private $context;
 
+    /**
+     * @var \PHPUnit\Framework\MockObject\MockObject|Cleanup
+     */
     private $cleanModel;
 
+    /**
+     * @var ResultRedirect|\PHPUnit\Framework\MockObject\MockObject
+     */
     private $resultRedirect;
 
+    /**
+     * @var ResultFactory|\PHPUnit\Framework\MockObject\MockObject
+     */
     private $resultFactory;
 
+    /**
+     * @return void
+     */
     public function testExecute()
     {
         $this->cleanModel->expects($this->atLeastOnce())->method('execute');
@@ -43,15 +61,36 @@ class CleanTest extends TestCase
         $this->messageManager->expects($this->atLeastOnce())
                              ->method('addSuccessMessage')
                              ->with($expectedMessage);
-       $this->assertEquals($this->resultRedirect, $this->object->execute());
+        $this->assertEquals($this->resultRedirect, $this->object->execute());
     }
 
+    /**
+     * @return void
+     */
+    public function testExecuteException()
+    {
+        $this->cleanModel->expects($this->atLeastOnce())->method('execute')->willThrowException(new \Exception('error'));
+        $this->resultRedirect->expects($this->atLeastOnce())
+                             ->method('setPath')
+                             ->with('*/*/')
+                             ->willReturnSelf();
+        $expectedMessage = new Phrase('error');
+        $this->messageManager->expects($this->atLeastOnce())
+                             ->method('addErrorMessage')
+                             ->with($expectedMessage);
+        $this->assertEquals($this->resultRedirect, $this->object->execute());
+    }
+
+    /**
+     * @return void
+     */
     protected function setUp(): void
     {
-        $this->contextMock = $this->getMockBuilder(Context::class)
-                                  ->disableOriginalConstructor()
-                                  ->getMock();
+        $this->context = $this->getMockBuilder(Context::class)
+                              ->disableOriginalConstructor()
+                              ->getMock();
         $this->cleanModel = $this->getMockBuilder(Cleanup::class)
+                                 ->disableOriginalConstructor()
                                  ->getMock();
 
         $this->resultRedirect = $this->getMockBuilder(ResultRedirect::class)

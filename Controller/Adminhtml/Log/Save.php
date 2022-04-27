@@ -59,6 +59,7 @@ class Save extends Action implements HttpPostActionInterface
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $redirectResult = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         try {
+            /** @var \Magento\UrlRewrite\Model\UrlRewrite $model */
             $model = $this->urlRewriteFactory->create();
             $model->setEntityType(Rewrite::ENTITY_TYPE_CUSTOM)
                   ->setRequestPath($this->getRequest()->getParam('request_path'))
