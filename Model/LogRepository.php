@@ -20,9 +20,6 @@ use TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log as ResourceLog;
 use TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log\CollectionFactory as LogCollectionFactory;
 use Magento\Framework\Api\SearchCriteriaInterface;
 
-/**
- * Log Repository
- */
 class LogRepository implements LogRepositoryInterface
 {
     /**

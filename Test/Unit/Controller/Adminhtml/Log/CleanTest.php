@@ -13,6 +13,7 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\Result\Redirect as ResultRedirect;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Message\ManagerInterface;
+use Magento\Framework\Phrase;
 use TheSGroup\NotFoundUrlLog\Controller\Adminhtml\Log\Clean;
 use PHPUnit\Framework\TestCase;
 use TheSGroup\NotFoundUrlLog\Model\Cleanup;
@@ -38,6 +39,7 @@ class CleanTest extends TestCase
                              ->method('setPath')
                              ->with('*/*/')
                              ->willReturnSelf();
+        $expectedMessage = new Phrase('Log cleaned successfully.');
         $this->messageManager->expects($this->atLeastOnce())
                              ->method('addSuccessMessage')
                              ->with($expectedMessage);
@@ -46,8 +48,9 @@ class CleanTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->context = $this->getMockBuilder(Context::class)
-                              ->getMock();
+        $this->contextMock = $this->getMockBuilder(Context::class)
+                                  ->disableOriginalConstructor()
+                                  ->getMock();
         $this->cleanModel = $this->getMockBuilder(Cleanup::class)
                                  ->getMock();
 

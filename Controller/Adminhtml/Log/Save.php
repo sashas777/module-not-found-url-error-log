@@ -56,6 +56,8 @@ class Save extends Action implements HttpPostActionInterface
      */
     public function execute()
     {
+        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        $redirectResult = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         try {
             $model = $this->urlRewriteFactory->create();
             $model->setEntityType(Rewrite::ENTITY_TYPE_CUSTOM)
@@ -66,8 +68,7 @@ class Save extends Action implements HttpPostActionInterface
                   ->setDescription($this->getRequest()->getParam('description'));
             $model->save();
             $this->messageManager->addSuccessMessage(__('The URL Rewrite has been saved.'));
-            $this->_redirect('*/*/');
-            return;
+            return $redirectResult->setPath('*');
         } catch (LocalizedException $e) {
             $this->messageManager->addErrorMessage($e->getMessage());
         } catch (\Exception $e) {
@@ -76,8 +77,6 @@ class Save extends Action implements HttpPostActionInterface
                 __('An error occurred while saving the URL rewrite. Please try to save again.')
             );
         }
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-        $redirectResult = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $redirectResult->setPath('*');
     }
 }

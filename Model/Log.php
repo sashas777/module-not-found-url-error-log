@@ -12,9 +12,6 @@ use Magento\Framework\Model\AbstractModel;
 use TheSGroup\NotFoundUrlLog\Api\Data\LogInterface;
 use TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log as ResourceModel;
 
-/**
- * Class Log
- */
 class Log extends AbstractModel implements LogInterface
 {
     /**
@@ -153,4 +150,3 @@ class Log extends AbstractModel implements LogInterface
         return $this->setData(static::OCCURRENCES, $occurrences);
     }
 }
-

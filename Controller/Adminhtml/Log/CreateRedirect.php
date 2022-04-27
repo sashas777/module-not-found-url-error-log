@@ -87,7 +87,7 @@ class CreateRedirect extends Action implements HttpGetActionInterface
         $editBlock->setChild('form', $formBlock);
 
         $resultPage->getConfig()->getTitle()->prepend($editBlock->getHeaderText());
-        $this->_addContent($editBlock);
+        $resultPage->addContent($editBlock);
 
         return $resultPage;
     }

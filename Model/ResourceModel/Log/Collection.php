@@ -15,7 +15,11 @@ use TheSGroup\NotFoundUrlLog\Model\ResourceModel\Log as Resource;
 class Collection extends AbstractCollection
 {
     /**
-     * @inheritDoc
+     * Identifier field name for collection items
+     *
+     * Can be used by collections with items without defined
+     *
+     * @var string
      */
     protected $_idFieldName = 'entity_id';
 
